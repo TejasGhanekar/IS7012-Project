@@ -1,0 +1,56 @@
+﻿@page
+@model UpdateTicketPriceModel
+@{
+    ViewData["Title"] = "Update Ticket Price";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form method="post" style="margin-top: 50px;">
+                
+                <div class="form-group">
+                    <label class="control-label">Concert Id</label>
+                    <div>
+                        <p class="form-control-static">@Model.Concert.Id</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label">Minimum Ticket Price</label>
+                    <div>
+                        <p class="form-control-static">@Model.Concert.MinPrice</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Maximum Ticket Price</label>
+                    <div>
+                        <p class="form-control-static">@Model.Concert.MaxPrice</p>
+                    </div>
+                </div>
+                
+                @if(Model.Concert.ConcertDate>DateTime.Today) {
+                    
+                    <input type="hidden" asp-for="ChangeTicketPrice.ConcertId" />
+                    <div class="form-group">
+                        <label asp-for="ChangeTicketPrice.NewMinPrice" class="control-label"></label>
+                        <input asp-for="ChangeTicketPrice.NewMinPrice" class="form-control" value=""/>
+                        <span asp-validation-for="ChangeTicketPrice.NewMinPrice" class="text-danger"></span>
+                    </div>
+                     <div class="form-group">
+                        <label asp-for="ChangeTicketPrice.NewMaxPrice" class="control-label"></label>
+                        <input asp-for="ChangeTicketPrice.NewMaxPrice" class="form-control" value=""/>
+                        <span asp-validation-for="ChangeTicketPrice.NewMaxPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Change Ticket Price" class="btn btn-danger" />
+                    </div>
+                } else {
+                    <div class="alert alert-warning">
+                        <p>You cannot change the ticket prices of a past concert </p>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>

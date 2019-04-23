@@ -1,0 +1,77 @@
+@page
+@model ConcertCentral.Pages.Concerts.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Concert</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.Venue)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.Venue)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.ConcertDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.ConcertDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.ParkingAvailability)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.ParkingAvailability)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.MinPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.MinPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.MaxPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.MaxPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.SeatsAvailable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.SeatsAvailable)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.Band)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.Band.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Concert.EventPlanner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Concert.EventPlanner.Id)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Concert.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

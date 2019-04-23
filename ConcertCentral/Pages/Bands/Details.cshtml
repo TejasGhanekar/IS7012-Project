@@ -1,0 +1,44 @@
+@page
+@model ConcertCentral.Pages.Bands.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Band</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Band.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Band.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Band.EstablishmentDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Band.EstablishmentDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Band.Genre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Band.Genre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Band.NoOfMembers)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Band.NoOfMembers)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Band.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

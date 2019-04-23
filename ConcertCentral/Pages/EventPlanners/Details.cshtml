@@ -1,0 +1,62 @@
+@page
+@model ConcertCentral.Pages.EventPlanners.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EventPlanner</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EventPlanner.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventPlanner.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventPlanner.StreetAddressOne)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventPlanner.StreetAddressOne)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventPlanner.StreetAddressTwo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventPlanner.StreetAddressTwo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventPlanner.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventPlanner.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventPlanner.State)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventPlanner.State)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventPlanner.Zip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventPlanner.Zip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventPlanner.ContactNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventPlanner.ContactNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.EventPlanner.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

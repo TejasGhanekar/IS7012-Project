@@ -1,0 +1,47 @@
+@page
+@model ConcertCentral.Pages.Bands.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Band</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Band.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Band.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Band.EstablishmentDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Band.EstablishmentDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Band.Genre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Band.Genre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Band.NoOfMembers)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Band.NoOfMembers)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Band.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

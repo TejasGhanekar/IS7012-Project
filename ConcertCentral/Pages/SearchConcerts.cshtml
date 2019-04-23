@@ -1,0 +1,74 @@
+﻿@page
+@model SearchConcertsModel
+@{
+    ViewData["Title"] = "Search Concerts";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+
+<form action="" method="POST" style="margin-top: 50px;">
+  <div class="form-group">
+    <label class="control-label" for="search">Concert Name</label>
+    <input type="text" class="form-control" name="search" id="search" value="@Model.Search"/>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Search Concerts" class="btn btn-default"/>
+  </div>
+</form>
+
+                                                                                                                                            
+@if(Model.SearchCompleted) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Venue</th>
+                <th>Concert Date</th>
+                <th>Band Performing</th>
+                <th>Parking Availability</th>
+                <th>Ticket Range</th>
+                <th>Seats Available</th>
+                <th>Modify Ticket Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model.SearchResults.Count > 0) {
+                @foreach(var concert in Model.SearchResults) {
+                    <tr>
+                        <td>@concert.Name</td>
+                        <td>@concert.Venue</td>
+                        <td>@concert.ConcertDate</td>
+                        <td>@concert.Band.Name</td>
+                        <td>@if(concert.ParkingAvailability){
+                                <text>Available</text>
+                            }
+                            else
+                            {
+                                <text>Unavailable</text>
+                            }
+                        </td>
+                        <td>@concert.MinPrice - @concert.MaxPrice</td>
+                        <td>@concert.SeatsAvailable<br>@concert.SeatStatus</td>
+                        <td><a asp-page="/updateticketprice" asp-route-id="@concert.Id">Edit Price</a></td>
+                    </tr>
+                }
+            } else {
+                    <tr class="danger">
+                        <td></td>
+                        
+                        <td></td>
+                        <td colspan="4" class="text-center" style="color: black;">
+                            No results found for term "@Model.Search"
+                        </td>
+                        <td></td>
+                           
+                    </tr>
+                    }
+        </tbody>
+    </table>
+} else {
+    <div class="alert alert-info">
+        <p>
+            Enter the search terms into the box and click <strong>Search Concerts</strong>
+        </p>
+    </div>
+}

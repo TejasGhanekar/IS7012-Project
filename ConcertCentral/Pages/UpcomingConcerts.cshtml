@@ -1,0 +1,50 @@
+﻿@page
+@model UpcomingConcertsModel
+@{
+    ViewData["Title"] = "Upcoming Concerts";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+<h1>Upcoming Concerts</h1>
+
+<table class="table table-bordered "style="text-align:center;">
+    <thead>
+        <tr >
+            <th style="text-align:center;">#</th>
+            <th style="text-align:center;">Concert Name</th>
+            <th style="text-align:center;">Venue</th>
+            <th style="text-align:center;">Concert Date</th>
+            <th style="text-align:center;">Band Performing</th>
+            <th style="text-align:center;">Parking Availability</th>
+            <th style="text-align:center;">Ticket Range</th>
+            <th style="text-align:center;">Seats Available</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        
+        @for (var counter = 0; counter < Model.Concerts.Count(); counter++)
+        {
+            var i = Model.Concerts[counter];
+            <tr>
+
+                <td>@(counter + 1)</td>
+                <td>@i.Name</td>
+                <td>@i.Venue</td>
+                <td>@i.ConcertDate</td>
+                <td>@i.Band.Name</td>
+                <td>
+                @if(i.ParkingAvailability)
+                {
+                    <text>Available</text>
+                }
+                else
+                {
+                    <text>Unavailable</text>
+                }</td>
+                <td>@i.MinPrice - @i.MaxPrice</td>
+                <td>@i.SeatsAvailable<br>@i.SeatStatus</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

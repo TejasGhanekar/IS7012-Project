@@ -1,0 +1,75 @@
+@page
+@model ConcertCentral.Pages.Concerts.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+
+<h2>Create</h2>
+
+<h4>Concert</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Concert.Name" class="control-label"></label>
+                <input asp-for="Concert.Name" class="form-control" />
+                <span asp-validation-for="Concert.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concert.Venue" class="control-label"></label>
+                <input asp-for="Concert.Venue" class="form-control" />
+                <span asp-validation-for="Concert.Venue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concert.ConcertDate" class="control-label"></label>
+                <input asp-for="Concert.ConcertDate" class="form-control" />
+                <span asp-validation-for="Concert.ConcertDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Concert.ParkingAvailability" /> @Html.DisplayNameFor(model => model.Concert.ParkingAvailability)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concert.MinPrice" class="control-label"></label>
+                <input asp-for="Concert.MinPrice" class="form-control" />
+                <span asp-validation-for="Concert.MinPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concert.MaxPrice" class="control-label"></label>
+                <input asp-for="Concert.MaxPrice" class="form-control" />
+                <span asp-validation-for="Concert.MaxPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concert.SeatsAvailable" class="control-label"></label>
+                <input asp-for="Concert.SeatsAvailable" class="form-control" />
+                <span asp-validation-for="Concert.SeatsAvailable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concert.BandId" class="control-label"></label>
+                <select asp-for="Concert.BandId" class ="form-control" asp-items="ViewBag.BandId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concert.EventPlannerId" class="control-label"></label>
+                <select asp-for="Concert.EventPlannerId" class ="form-control" asp-items="ViewBag.EventPlannerId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

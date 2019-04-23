@@ -1,0 +1,42 @@
+﻿@page
+@model TopEventPlannersModel
+@{
+    ViewData["Title"] = "Top Event Planners";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+<div>  
+    <h1>Top Event Planners</h1>
+    <h2>@Model.EventPlanner.Name</h2>
+    <table class="table">
+        <tr>
+            <th>Concert Name</th>
+            <th>Venue</th>
+            <th>Concert Date</th>
+            <th>Parking Availability</th>
+            <th>Ticket Range </th>
+            <th>Seats Available</th>
+        </tr>
+
+        @foreach (var x in @Model.EventPlanner.Concerts)
+        {
+        <tr>
+            <td>@x.Name</td>
+            <td>@x.Venue</td>
+            <td>@x.ConcertDate</td>
+            <td>
+                @if(x.ParkingAvailability)
+                {
+                    <text>Available</text>
+                }
+                else
+                {
+                    <text>Unavailable</text>
+                }
+            </td>
+            <td>@x.MinPrice - @x.MaxPrice</td>
+            <td>@x.SeatsAvailable</td>
+         </tr>
+        }
+    </table>
+
+</div>

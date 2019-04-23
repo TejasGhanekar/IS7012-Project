@@ -1,0 +1,85 @@
+@page
+@model ConcertCentral.Pages.Concerts.IndexModel
+
+@{
+    ViewData["Title"] = "Concerts";
+    <link rel="icon" href="/images/ConcertCentral.png">
+}
+
+<h2>Concerts</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].Venue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].ConcertDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].ParkingAvailability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].MinPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].MaxPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].SeatsAvailable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].Band)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concert[0].EventPlanner)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Concert) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConcertDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsParkingAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatsAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Band.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventPlanner.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
